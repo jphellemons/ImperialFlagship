@@ -4,6 +4,7 @@ I started this project to find the bricks for this amazing set.
 It is based on reading an CSV file with all the pieces, so you can use this project for any other set.
 I just did not feel like making a GUI for it, so it is a command line tool with the csv file hardcoded in it. So you have to build it from source.
 I would like some pull-requests for it.
+It uses the Bricklink website to scrape the info from, but I was planning to use the upcoming REST buyer api.
 
 ## Future planning ##
 
