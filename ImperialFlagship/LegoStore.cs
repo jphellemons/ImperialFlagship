@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ImperialFlagship
 {
-    class LegoStore
+    public class LegoStore
     {
         public int Id { get; set; }
         public string Name { get; set; }
