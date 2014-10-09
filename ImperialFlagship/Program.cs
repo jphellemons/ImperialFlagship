@@ -16,29 +16,22 @@ namespace ImperialFlagship
     {
         static void Main(string[] args)
         {
-            string setId = "10210-1";
-            DisplayAscii();
+            //string setId = "10210-1"; // imperial flagship
+            string setId = "70810-1";   // seacow
 
             if(args!= null && args.Length > 0)
                 setId = args[0].ToString();
 
-            Set legoSet = LoadLegoPartsFromRebrickable(setId);
-            legoSet.GetPartPrices(); // unless http://api.bricklink.com/pages/api/welcome.page has an update
-            legoSet.DisplayUnavailable();
-            legoSet.CalculateTotalPrice();
-            // perhaps fill store info (storename, shipping costs, min order etc.)
+            //DisplayAscii();
 
-            Console.ReadKey();
+            var legoSet = Rebrickable.LoadLegoParts(setId);
+
+            legoSet.GetInventory();
+
+            Console.ReadKey(); // to prevent console from closing
         }
 
-        private static Set LoadLegoPartsFromRebrickable(string setId)
-        {
-            WebClient w = new WebClient();
-            string result = w.DownloadString("http://rebrickable.com/api/get_set_parts?key=" +
-                ConfigurationManager.AppSettings.Get("rebrickableApiKey") + "&set=" + setId + "&format=json");
-
-            return JsonConvert.DeserializeObject<List<Set>>(result).First();
-        }
+       
 
         private static void DisplayAscii()
         {
